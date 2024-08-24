@@ -1,0 +1,15 @@
+C:\Users\yohan\source\repos\The Calculator App\The Calculator App\bin\Debug\The Calculator App.exe.config
+C:\Users\yohan\source\repos\The Calculator App\The Calculator App\bin\Debug\The Calculator App.exe
+C:\Users\yohan\source\repos\The Calculator App\The Calculator App\bin\Debug\The Calculator App.pdb
+C:\Users\yohan\source\repos\The Calculator App\The Calculator App\obj\Debug\The Calculator App.csproj.AssemblyReference.cache
+C:\Users\yohan\source\repos\The Calculator App\The Calculator App\obj\Debug\MainWindow.g.cs
+C:\Users\yohan\source\repos\The Calculator App\The Calculator App\obj\Debug\App.g.cs
+C:\Users\yohan\source\repos\The Calculator App\The Calculator App\obj\Debug\The Calculator App_MarkupCompile.cache
+C:\Users\yohan\source\repos\The Calculator App\The Calculator App\obj\Debug\The Calculator App_MarkupCompile.lref
+C:\Users\yohan\source\repos\The Calculator App\The Calculator App\obj\Debug\MainWindow.baml
+C:\Users\yohan\source\repos\The Calculator App\The Calculator App\obj\Debug\The Calculator App.g.resources
+C:\Users\yohan\source\repos\The Calculator App\The Calculator App\obj\Debug\The_Calculator_App.Properties.Resources.resources
+C:\Users\yohan\source\repos\The Calculator App\The Calculator App\obj\Debug\The Calculator App.csproj.GenerateResource.cache
+C:\Users\yohan\source\repos\The Calculator App\The Calculator App\obj\Debug\The Calculator App.csproj.CoreCompileInputs.cache
+C:\Users\yohan\source\repos\The Calculator App\The Calculator App\obj\Debug\The Calculator App.exe
+C:\Users\yohan\source\repos\The Calculator App\The Calculator App\obj\Debug\The Calculator App.pdb
