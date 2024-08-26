@@ -22,6 +22,7 @@ namespace The_Calculator_App
     public partial class MainWindow : Window
     {
         double lastNumber, result;
+        SelectedOperator selectedOperator;
 
         public MainWindow()
         {
@@ -41,7 +42,40 @@ namespace The_Calculator_App
         #region Functions Code-Behind
         private void EqualButton_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            double newNumber;
+            if (double.TryParse(resultLabel.Content.ToString(), out newNumber))
+            {
+                switch(selectedOperator)
+                {
+                    
+                    case SelectedOperator.Addition:
+                        result = SimpleMath.Add(lastNumber, newNumber);
+                        break;
+                    case SelectedOperator.Substraction:
+                        result = SimpleMath.Pengurangan(lastNumber, newNumber);
+                        break;
+                    case SelectedOperator.Multiplication:
+                        result = SimpleMath.Multiply(lastNumber, newNumber);
+                        break;
+                    case SelectedOperator.Division:
+                        result = SimpleMath.Divide(lastNumber, newNumber);
+                        break;
+                }
+
+                resultLabel.Content = result.ToString();
+            }
+        }
+
+        private void dotButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(resultLabel.Content.ToString().Contains("."))
+            {
+                // do nothing
+            }
+            else
+            {
+                resultLabel.Content = $"{resultLabel.Content}.";
+            }
         }
 
         private void PercentageButton_Click(object sender, RoutedEventArgs e)
@@ -73,13 +107,26 @@ namespace The_Calculator_App
 
         private void OperationButton_Click(Object sender, RoutedEventArgs e)
         {
+            if(double.TryParse(resultLabel.Content.ToString(), out lastNumber))
+            {
+                resultLabel.Content = "0";
+            }
 
+            if (sender == multiplicationButton)
+                selectedOperator = SelectedOperator.Multiplication;
+            if (sender == divisionButton)
+                selectedOperator = SelectedOperator.Division;
+            if (sender == plusButton)
+                selectedOperator = SelectedOperator.Addition;
+            if (sender == minusButton)
+                selectedOperator = SelectedOperator.Substraction;
         }
 
         #endregion
 
-        #region Event Handlers for Button Numbers
+        #region Event Handlers for Numbers
 
+        
         private void NumberButton_Click(object sender, RoutedEventArgs e)
         {
             //int selectedValue: Variabel untuk menyimpan angka yang diambil dari tombol.
@@ -102,4 +149,39 @@ namespace The_Calculator_App
         #endregion
 
     }
+
+    #region Custom Types Enum & Math Methods
+
+    public enum SelectedOperator
+    {
+        Addition,
+        Substraction,
+        Multiplication,
+        Division
+    }
+
+    public class SimpleMath
+    {
+        public static double Add(double n1, double n2)
+        {
+            return n1 + n2;
+        }
+        
+        public static double Pengurangan(double n1, double n2)
+        {
+            return n1 - n2; 
+        }
+
+        public static double Multiply(double n1, double n2)
+        {
+            return n1 * n2;
+        }
+
+        public static double Divide(double n1, double n2)
+        {
+            return n1 / n2;
+        }
+    }
+
+    #endregion
 }
