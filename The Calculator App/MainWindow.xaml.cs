@@ -1,18 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace The_Calculator_App
 {
@@ -36,7 +24,7 @@ namespace The_Calculator_App
             percentageButton.Click += PercentageButton_Click;
             equalButton.Click += EqualButton_Click;
 
-            
+
         }
 
         #region Functions Code-Behind
@@ -46,7 +34,7 @@ namespace The_Calculator_App
             if (double.TryParse(resultLabel.Content.ToString(), out newNumber))
             {
                 //caller from custom types methods
-                switch(selectedOperator)
+                switch (selectedOperator)
                 {
                     case SelectedOperator.Addition:
                         result = SimpleMath.Add(lastNumber, newNumber);
@@ -68,7 +56,7 @@ namespace The_Calculator_App
 
         private void dotButton_Click(object sender, RoutedEventArgs e)
         {
-            if(resultLabel.Content.ToString().Contains("."))
+            if (resultLabel.Content.ToString().Contains("."))
             {
                 // do nothing
             }
@@ -89,7 +77,7 @@ namespace The_Calculator_App
 
         private void NegativeButton_Click(object sender, RoutedEventArgs e)
         {
-            if(double.TryParse(resultLabel.Content.ToString(), out lastNumber))
+            if (double.TryParse(resultLabel.Content.ToString(), out lastNumber))
             {
                 lastNumber = lastNumber * -1;
                 resultLabel.Content = lastNumber.ToString();
@@ -107,7 +95,7 @@ namespace The_Calculator_App
         //callee in xaml ui operation button 
         private void OperationButton_Click(Object sender, RoutedEventArgs e)
         {
-            if(double.TryParse(resultLabel.Content.ToString(), out lastNumber))
+            if (double.TryParse(resultLabel.Content.ToString(), out lastNumber))
             {
                 resultLabel.Content = "0";
             }
@@ -168,10 +156,10 @@ namespace The_Calculator_App
         {
             return n1 + n2;
         }
-        
+
         public static double Pengurangan(double n1, double n2)
         {
-            return n1 - n2; 
+            return n1 - n2;
         }
 
         public static double Multiply(double n1, double n2)
@@ -181,6 +169,12 @@ namespace The_Calculator_App
 
         public static double Divide(double n1, double n2)
         {
+            if (n2 == 0)
+            {
+                MessageBox.Show("Division by 0 is not supported", "Wrong Operation", MessageBoxButton.OK, MessageBoxImage.Error);
+                return 0;
+            }
+
             return n1 / n2;
         }
     }
