@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -68,38 +69,24 @@ namespace The_Calculator_App
 
         #endregion
 
+        #region Event Handlers for Operation Button
+
         private void OperationButton_Click(Object sender, RoutedEventArgs e)
         {
 
         }
 
+        #endregion
+
         #region Event Handlers for Button Numbers
+
         private void NumberButton_Click(object sender, RoutedEventArgs e)
         {
-            int selectedValue = 0;
-
-            if (sender == zeroButton)
-                selectedValue = 0;
-            if (sender == oneButton)
-                selectedValue = 1;
-            if (sender == twoButton)
-                selectedValue = 2;
-            if (sender == threeButton)
-                selectedValue = 3;
-            if (sender == fourButton)
-                selectedValue = 4;
-            if (sender == fiveButton)
-                selectedValue = 5;
-            if (sender == sixButton)
-                selectedValue = 6;
-            if (sender == sevenButton)
-                selectedValue = 7;
-            if (sender == eightButton)
-                selectedValue = 8;
-            if (sender == nineButton)
-                selectedValue = 9;
-          
-
+            //int selectedValue: Variabel untuk menyimpan angka yang diambil dari tombol.
+            //int.Parse: Metode untuk mengonversi string ke integer.
+            //sender as Button: Mengonversi objek sender menjadi Button untuk akses properti tombol.
+            //Content.ToString(): Mengonversi nilai Content tombol menjadi string agar bisa diproses lebih lanjut.
+            int selectedValue = int.Parse((sender as Button).Content.ToString());
 
             if (resultLabel.Content.ToString() == "0")
             {
@@ -111,6 +98,7 @@ namespace The_Calculator_App
                 resultLabel.Content = $"{resultLabel.Content}{selectedValue}";
             }
         }
+
         #endregion
 
     }
