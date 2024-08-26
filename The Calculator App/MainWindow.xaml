@@ -44,7 +44,7 @@
                 Grid.Column="2"
                 Margin="5"/>
         
-        <!--Operation Buttton-->
+        <!--caller from Event Handlers for Operation Button-->
         <Button x:Name="divisionButton"
                 Click="OperationButton_Click"
                 Content="/" 
@@ -82,9 +82,8 @@
                 Grid.Row="5"
                 Grid.Column="2"
                 Margin="5"/>
-        
-        <!--Number Button Clicks Events-->
-       
+
+        <!--Caller from Event Handlers for Numbers-->
         <Button x:Name="sevenButton"
                 Content="7" 
                 Grid.Row="2"
@@ -132,5 +131,6 @@
                 Grid.Row="5"
                 Grid.ColumnSpan="2"
                 Margin="5" Click="NumberButton_Click"/>
+        <!--End of Numbers-->
     </Grid>
 </Window>

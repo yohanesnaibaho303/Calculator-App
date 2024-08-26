@@ -45,9 +45,9 @@ namespace The_Calculator_App
             double newNumber;
             if (double.TryParse(resultLabel.Content.ToString(), out newNumber))
             {
+                //caller from custom types methods
                 switch(selectedOperator)
                 {
-                    
                     case SelectedOperator.Addition:
                         result = SimpleMath.Add(lastNumber, newNumber);
                         break;
@@ -104,7 +104,7 @@ namespace The_Calculator_App
         #endregion
 
         #region Event Handlers for Operation Button
-
+        //callee in xaml ui operation button 
         private void OperationButton_Click(Object sender, RoutedEventArgs e)
         {
             if(double.TryParse(resultLabel.Content.ToString(), out lastNumber))
@@ -112,6 +112,7 @@ namespace The_Calculator_App
                 resultLabel.Content = "0";
             }
 
+            //caller from enum
             if (sender == multiplicationButton)
                 selectedOperator = SelectedOperator.Multiplication;
             if (sender == divisionButton)
@@ -125,8 +126,7 @@ namespace The_Calculator_App
         #endregion
 
         #region Event Handlers for Numbers
-
-        
+        //Callee in xaml UI button from 0 - 9
         private void NumberButton_Click(object sender, RoutedEventArgs e)
         {
             //int selectedValue: Variabel untuk menyimpan angka yang diambil dari tombol.
@@ -152,6 +152,7 @@ namespace The_Calculator_App
 
     #region Custom Types Enum & Math Methods
 
+    //callee in OperationButton_Click
     public enum SelectedOperator
     {
         Addition,
@@ -160,6 +161,7 @@ namespace The_Calculator_App
         Division
     }
 
+    //callee in EqualButton_Click
     public class SimpleMath
     {
         public static double Add(double n1, double n2)
